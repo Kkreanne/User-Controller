@@ -8,6 +8,16 @@ const get = (id) => {
     return $.getJSON(`${url}/users/${id}`);     //get user by primary key from Json
 };
 
+const create = (user) => {
+    return $.ajax({
+        method: "POST",                  //define what CRUD function we want
+        url: `${url}/users/${user.id}`, //define the url
+        data: JSON.stringify(user),     //define the data of the user instance
+        content: "json",                //defines the content
+        contentType: "application/json" //defines the type of content
+    });
+};
+
 const change = (user) => {              //takes in a user instance
     return $.ajax({
         method: "PUT",                  //define what CRUD function we want
@@ -16,4 +26,14 @@ const change = (user) => {              //takes in a user instance
         content: "json",                //defines the content
         contentType: "application/json" //defines the type of content
     });
+};
+
+const remove = (user) => {
+    return $.ajax({
+            method: "DELETE",
+            url: `${url}/users/${user.id}`,
+            data: null,
+            content: "json",
+            contentType: "application/json"
+        });
 };

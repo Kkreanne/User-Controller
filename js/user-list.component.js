@@ -7,7 +7,6 @@ $().ready(() => {
             console.log(response);  //show all data in console  
             display(users);
         });
-
 });
 
 const display = (users) => {
